@@ -16,6 +16,11 @@ public record EquipmentResponseDto(
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {
+    @com.fasterxml.jackson.annotation.JsonProperty("availableQuantity")
+    public Integer availableQuantity() {
+        return quantityAvailable;
+    }
+
     public static EquipmentResponseDto fromEntity(Equipment entity) {
         return new EquipmentResponseDto(
                 entity.getId(),

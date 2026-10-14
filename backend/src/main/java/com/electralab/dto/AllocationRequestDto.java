@@ -1,5 +1,6 @@
 package com.electralab.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -20,6 +21,7 @@ public class AllocationRequestDto {
     @Min(value = 1, message = "Quantity must be at least 1")
     private Integer quantity;
 
+    @JsonDeserialize(using = FlexibleLocalDateTimeDeserializer.class)
     private LocalDateTime expectedReturnDate;
 
     private String remarks;
